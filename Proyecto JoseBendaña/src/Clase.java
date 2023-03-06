@@ -9,13 +9,13 @@ class Clase {
     private ArrayList<Tarea> tareas = new ArrayList(); 
     private ArrayList<Examen> examenes = new ArrayList();
     private int id, uv, semestre, periodo;
-    private Date anio, hora;
-    private String nombreclase;
+    private Date anio;
+    private String nombreclase, hora;
 
     public Clase() {
     }
 
-    public Clase(int id, int uv, int semestre, int periodo, Date anio, String nombreclase, Date hora) {
+    public Clase(int id, int uv, int semestre, int periodo, Date anio, String nombreclase, String hora) {
         this.id = id;
         this.uv = uv;
         this.semestre = semestre;
@@ -105,11 +105,11 @@ class Clase {
         this.nombreclase = nombreclase;
     }
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

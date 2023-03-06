@@ -11,9 +11,14 @@ public class Alumno extends Usuario{
     public Alumno() {
     }
 
-    public Alumno(String nombreusuario, String contra, String nombre) {
+    public Alumno(int numcuenta, String carrera, String rol, String nombreusuario, String contra, String nombre) {
         super(nombreusuario, contra, nombre);
+        this.numcuenta = numcuenta;
+        this.carrera = carrera;
+        this.rol = rol;
     }
+
+    
 
     public ArrayList<Clase> getClases() {
         return clasesmatr;
