@@ -61,8 +61,9 @@ public class Maestro extends Usuario{
 
     @Override
     public String toString() {
-        return "Maestro{" +super.todo()+ "clasesense=" + clasesense + ", id=" + id + ", profesion=" + profesion + ", rol=" + rol + ", sueldo=" + sueldo + '}';
+        return super.getNombre();
     }
+    
     
     
     

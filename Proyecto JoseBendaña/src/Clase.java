@@ -6,7 +6,7 @@ class Clase {
 
     private ArrayList<Maestro> maestrosdanclase = new ArrayList();
     private ArrayList<Alumno> alumnosreciben = new ArrayList();
-    private ArrayList<Tarea> tareas = new ArrayList(); 
+    private ArrayList<Tarea> tareas = new ArrayList();
     private ArrayList<Examen> examenes = new ArrayList();
     private int id, uv, semestre, periodo;
     private Date anio;
@@ -115,9 +115,7 @@ class Clase {
 
     @Override
     public String toString() {
-        return "Clase{" + "maestrosdanclase=" + maestrosdanclase + ", alumnosreciben=" + alumnosreciben + ", tareas=" + tareas + ", examenes=" + examenes + ", id=" + id + ", uv=" + uv + ", semestre=" + semestre + ", periodo=" + periodo + ", anio=" + anio + ", nombreclase=" + nombreclase + ", hora=" + hora + '}';
+        return id + ": " + nombreclase;
     }
-    
-    
-    
+
 }

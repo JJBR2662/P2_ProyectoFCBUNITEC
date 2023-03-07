@@ -18,7 +18,29 @@ public class Alumno extends Usuario{
         this.rol = rol;
     }
 
-    
+    public int getNumcuenta() {
+        return numcuenta;
+    }
+
+    public void setNumcuenta(int numcuenta) {
+        this.numcuenta = numcuenta;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
 
     public ArrayList<Clase> getClases() {
         return clasesmatr;
@@ -30,7 +52,7 @@ public class Alumno extends Usuario{
 
     @Override
     public String toString() {
-        return super.todo()+"Alumno{" + "clases=" + clasesmatr + '}';
+        return super.getNombre();
     }
     
     

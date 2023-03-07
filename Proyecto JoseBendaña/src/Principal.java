@@ -3,6 +3,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import desplazable.Desface;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /*
@@ -18,6 +19,9 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    ArrayList<Maestro> maestrosmodificadores;
+    ArrayList<Alumno> alumnosmodificadores;
+    ArrayList<Clase> clasesmodificadoras;
     ArrayList<Usuario> usuarios = new ArrayList();
     Registro registro = new Registro("registro", "registro123", "registro");
     Alumno alumnoprueba = new Alumno(12241115, "Ing Sistemas", "Estudiante", "jj", "123", "Julian");
@@ -53,6 +57,94 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jf_inicioregistro = new javax.swing.JFrame();
+        jp_modificarclase = new javax.swing.JPanel();
+        md1_UVNuevoClase = new javax.swing.JSpinner();
+        md1_TipoHoraNuevoClase = new javax.swing.JComboBox<>();
+        md1_SemestreNuevoClase = new javax.swing.JSpinner();
+        md1_PeriodoNuevoClase = new javax.swing.JSpinner();
+        md1_IDNuevoClase = new javax.swing.JFormattedTextField();
+        jLabel98 = new javax.swing.JLabel();
+        jb_modificarclase = new javax.swing.JButton();
+        jSeparator34 = new javax.swing.JSeparator();
+        jSeparator35 = new javax.swing.JSeparator();
+        jLabel99 = new javax.swing.JLabel();
+        md1_AnioNuevoClase = new com.toedter.calendar.JDateChooser();
+        jLabel100 = new javax.swing.JLabel();
+        jSeparator36 = new javax.swing.JSeparator();
+        md1_MinutosNuevoClase = new javax.swing.JSpinner();
+        jLabel101 = new javax.swing.JLabel();
+        jSeparator37 = new javax.swing.JSeparator();
+        md1_HoraNuevoClase = new javax.swing.JSpinner();
+        jLabel102 = new javax.swing.JLabel();
+        jSeparator38 = new javax.swing.JSeparator();
+        jSeparator39 = new javax.swing.JSeparator();
+        jLabel103 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        jSeparator40 = new javax.swing.JSeparator();
+        jLabel105 = new javax.swing.JLabel();
+        md1_NombreNuevoClase = new javax.swing.JTextField();
+        jLabel106 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jlista_clasesmod = new javax.swing.JList<>();
+        jp_inicioregistro = new javax.swing.JPanel();
+        esconder1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        esconder2 = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        esconder3 = new javax.swing.JTextArea();
+        jLabel88 = new javax.swing.JLabel();
+        jp_modalumno = new javax.swing.JPanel();
+        jSeparator28 = new javax.swing.JSeparator();
+        jButton7 = new javax.swing.JButton();
+        jLabel90 = new javax.swing.JLabel();
+        md_NuevaCarreraAlumno = new javax.swing.JTextField();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        md_NuevoRolAlumno = new javax.swing.JTextField();
+        jLabel93 = new javax.swing.JLabel();
+        jSeparator29 = new javax.swing.JSeparator();
+        md_NuevaContraAlumno = new javax.swing.JTextField();
+        jLabel94 = new javax.swing.JLabel();
+        jSeparator30 = new javax.swing.JSeparator();
+        jSeparator31 = new javax.swing.JSeparator();
+        jLabel95 = new javax.swing.JLabel();
+        jSeparator32 = new javax.swing.JSeparator();
+        md_NuevoNumCuentaAlumno = new javax.swing.JFormattedTextField();
+        jLabel96 = new javax.swing.JLabel();
+        jSeparator33 = new javax.swing.JSeparator();
+        jLabel97 = new javax.swing.JLabel();
+        md_NuevoNombreAlumno = new javax.swing.JTextField();
+        md_NuevoUserAlumno = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jlista_modalumnos = new javax.swing.JList<>();
+        jp_modificarmaestros = new javax.swing.JPanel();
+        jt_modificarnombremaestro = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jSeparator21 = new javax.swing.JSeparator();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jt_modificarusermaestro = new javax.swing.JTextField();
+        jSeparator22 = new javax.swing.JSeparator();
+        jSeparator23 = new javax.swing.JSeparator();
+        JB_MODIFICARMAESTRO = new javax.swing.JButton();
+        jSeparator24 = new javax.swing.JSeparator();
+        jSeparator25 = new javax.swing.JSeparator();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        jSeparator26 = new javax.swing.JSeparator();
+        jLabel84 = new javax.swing.JLabel();
+        jf_modificaridmaestro = new javax.swing.JFormattedTextField();
+        jt_ModificarProfesionMaestro = new javax.swing.JTextField();
+        jt_ModificarRolMaestro = new javax.swing.JTextField();
+        jf_ModificarSueldoMaestro = new javax.swing.JFormattedTextField();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel86 = new javax.swing.JLabel();
+        jt_modificarcontramaestro = new javax.swing.JTextField();
+        jSeparator27 = new javax.swing.JSeparator();
+        jLabel87 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_maestrosamodificar = new javax.swing.JList<>();
+        jLabel69 = new javax.swing.JLabel();
         jp_crearclase = new javax.swing.JPanel();
         jLabel70 = new javax.swing.JLabel();
         jt_nombreclasenueva = new javax.swing.JTextField();
@@ -101,8 +193,8 @@ public class Principal extends javax.swing.JFrame {
         jf_numcuentanuevoalumno = new javax.swing.JFormattedTextField();
         jt_rolalumnonuevo = new javax.swing.JTextField();
         jt_carreranuevoalumno = new javax.swing.JTextField();
-        jLabel69 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jLabel89 = new javax.swing.JLabel();
         jp_crearmaestro = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
@@ -129,12 +221,11 @@ public class Principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel60 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jp_todoregistro = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         ch_clases_registro = new java.awt.Choice();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -153,11 +244,6 @@ public class Principal extends javax.swing.JFrame {
         ch_alumnos_registro = new java.awt.Choice();
         jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        esconder1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        esconder3 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        esconder2 = new javax.swing.JTextArea();
         jLabel22 = new javax.swing.JLabel();
         jf_iniciomaestro = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
@@ -247,6 +333,412 @@ public class Principal extends javax.swing.JFrame {
         jf_inicioregistro.setSize(new java.awt.Dimension(1960, 1050));
         jf_inicioregistro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jp_modificarclase.setBackground(new java.awt.Color(193, 216, 252));
+        jp_modificarclase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        md1_UVNuevoClase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jp_modificarclase.add(md1_UVNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 100, 30));
+
+        md1_TipoHoraNuevoClase.setBackground(new java.awt.Color(193, 216, 252));
+        md1_TipoHoraNuevoClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Am", "Pm" }));
+        md1_TipoHoraNuevoClase.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarclase.add(md1_TipoHoraNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 410, 70, 30));
+
+        md1_SemestreNuevoClase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 2, 1));
+        jp_modificarclase.add(md1_SemestreNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 100, 30));
+
+        md1_PeriodoNuevoClase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 2, 1));
+        jp_modificarclase.add(md1_PeriodoNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 490, 100, 30));
+
+        md1_IDNuevoClase.setBackground(new java.awt.Color(193, 216, 252));
+        md1_IDNuevoClase.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        md1_IDNuevoClase.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("########"))));
+        jp_modificarclase.add(md1_IDNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 470, 30));
+
+        jLabel98.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel98.setText("Nuevo Año:");
+        jp_modificarclase.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 140, 30));
+
+        jb_modificarclase.setBackground(new java.awt.Color(255, 0, 0));
+        jb_modificarclase.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jb_modificarclase.setText("Modificar Clase");
+        jb_modificarclase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modificarclaseMouseClicked(evt);
+            }
+        });
+        jp_modificarclase.add(jb_modificarclase, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 690, 500, 80));
+
+        jSeparator34.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator34.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator34, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 600, 100, 10));
+
+        jSeparator35.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator35.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator35, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, 140, 10));
+
+        jLabel99.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel99.setText("Nuevo Periodo(1-2):");
+        jp_modificarclase.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 490, 210, 30));
+
+        md1_AnioNuevoClase.setBackground(new java.awt.Color(193, 216, 252));
+        jp_modificarclase.add(md1_AnioNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 330, 140, 30));
+
+        jLabel100.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel100.setText("Nuevas Unidades Valorativas:");
+        jp_modificarclase.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, 270, 30));
+
+        jSeparator36.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator36.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator36, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 520, 100, 10));
+
+        md1_MinutosNuevoClase.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 10));
+        jp_modificarclase.add(md1_MinutosNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 410, 70, 30));
+
+        jLabel101.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel101.setText("Nuevo Semestre (1-2):");
+        jp_modificarclase.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 220, 30));
+
+        jSeparator37.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator37.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator37, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 100, 10));
+
+        md1_HoraNuevoClase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        jp_modificarclase.add(md1_HoraNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, 70, 30));
+
+        jLabel102.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel102.setText(":");
+        jp_modificarclase.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, 30));
+
+        jSeparator38.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator38.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 440, 270, 10));
+
+        jSeparator39.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator39.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 470, 10));
+
+        jLabel103.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel103.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel103.setText("Nuevo Nombre de la Clase:");
+        jp_modificarclase.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 250, 30));
+
+        jLabel104.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel104.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel104.setText("Nuevo ID de la Clase:");
+        jp_modificarclase.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 200, 30));
+
+        jSeparator40.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator40.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarclase.add(jSeparator40, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, 470, 10));
+
+        jLabel105.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel105.setText("Nueva Hora de la Clase:");
+        jp_modificarclase.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 260, 30));
+
+        md1_NombreNuevoClase.setBackground(new java.awt.Color(193, 216, 252));
+        md1_NombreNuevoClase.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarclase.add(md1_NombreNuevoClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 470, 30));
+
+        jLabel106.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel106.setText("Modificando Una Clase");
+        jp_modificarclase.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 520, 40));
+
+        jlista_clasesmod.setModel(new DefaultListModel());
+        jlista_clasesmod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlista_clasesmodMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(jlista_clasesmod);
+
+        jp_modificarclase.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 310, 710));
+
+        jf_inicioregistro.getContentPane().add(jp_modificarclase, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 1380, 870));
+
+        jp_inicioregistro.setBackground(new java.awt.Color(193, 216, 252));
+        jp_inicioregistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        esconder1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        esconder1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        esconder1.setText("Usted Administra Toda Esta Plataforma");
+        jp_inicioregistro.add(esconder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 460, 60));
+
+        jScrollPane2.setBackground(new java.awt.Color(179, 205, 252));
+
+        esconder2.setEditable(false);
+        esconder2.setBackground(new java.awt.Color(142, 182, 252));
+        esconder2.setColumns(20);
+        esconder2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        esconder2.setRows(5);
+        esconder2.setText("\t\n\tUsted es registro y no hay nadie que pueda hacer todo lo que usted hace, Aqui se podra crear lo que\t\t\n usted quiere ya que en este sistema encontramos maestros, alumos y tambien clases que cursaran los mismos alumnos por los maestros.\n\n   Aqui se podra ingresar, modificar y expulsar lo que viene ser los alumnos y los maestros. Tambien estara encargado de administrar las \nclases dadas por los maestros y las clases cursadas por los alumnos ya que debera matricularlos en el apartado de \"Administrar alumnos\".\n\n Usted al ser el usuario de registro tiene el privilegio de poder cerrar sesion y tambien cerrar el sistema completamente por si hay un fallo\n\t                  que arreglar o administrar con nuestros Ingenieros en Sistemas Computacionales.");
+        esconder2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane2.setViewportView(esconder2);
+
+        jp_inicioregistro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 960, 210));
+
+        jScrollPane1.setBackground(new java.awt.Color(179, 205, 252));
+
+        esconder3.setEditable(false);
+        esconder3.setBackground(new java.awt.Color(142, 182, 252));
+        esconder3.setColumns(20);
+        esconder3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        esconder3.setRows(5);
+        esconder3.setText("\t\t                  ¡¡MUCHAS GRACIAS POR ACEPTAR ESTE TRABAJO!!\n\n Confiamos en ti y dejamos la plataforma a tus manos para que no haya ni tan solo un error y que pueda funcionar perfectamente para\n    que nuestros alumnos puedan tener la mejor experiencia posible a la hora de utilizar nuestro programa con sus caracteristicas que \n se han estado programando por mas de 4 semanas y que de requisitos estaba el esforzarse demasiado y meterle mucho amor y animo.");
+        esconder3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setViewportView(esconder3);
+
+        jp_inicioregistro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 920, 120));
+
+        jLabel88.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel88.setText("UNITEC FCB © 2023 | Derechos reservados.");
+        jp_inicioregistro.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 950, 350, 60));
+
+        jf_inicioregistro.getContentPane().add(jp_inicioregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 1730, 880));
+
+        jp_modalumno.setBackground(new java.awt.Color(193, 216, 252));
+        jp_modalumno.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jp_modalumno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator28.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator28.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modalumno.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 470, 10));
+
+        jButton7.setBackground(new java.awt.Color(255, 0, 0));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jButton7.setText("Modificar Alumno");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jp_modalumno.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 610, 500, 80));
+
+        jLabel90.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel90.setText("Modificando un Alumno");
+        jp_modalumno.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 100, 480, 40));
+
+        md_NuevaCarreraAlumno.setBackground(new java.awt.Color(193, 216, 252));
+        md_NuevaCarreraAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modalumno.add(md_NuevaCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 450, 470, 30));
+
+        jLabel91.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel91.setText("Nuevo Rol del Alumno:");
+        jp_modalumno.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 280, 30));
+
+        jLabel92.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel92.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel92.setText("Nuevo Nombre del Alumno:");
+        jp_modalumno.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 250, 30));
+
+        md_NuevoRolAlumno.setBackground(new java.awt.Color(193, 216, 252));
+        md_NuevoRolAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modalumno.add(md_NuevoRolAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 510, 470, 30));
+
+        jLabel93.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel93.setText("Nuevo Carrera del Alumno:");
+        jp_modalumno.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, 280, 30));
+
+        jSeparator29.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator29.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modalumno.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 360, 470, 10));
+
+        md_NuevaContraAlumno.setBackground(new java.awt.Color(193, 216, 252));
+        md_NuevaContraAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modalumno.add(md_NuevaContraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, 470, 30));
+
+        jLabel94.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel94.setText("Numero de cuenta debe ser de 8 digitos");
+        jp_modalumno.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 470, -1));
+
+        jSeparator30.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator30.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modalumno.add(jSeparator30, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, 470, 10));
+
+        jSeparator31.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator31.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modalumno.add(jSeparator31, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, 470, 10));
+
+        jLabel95.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel95.setText("Nuevo Numero de Cuenta del Alumno:");
+        jp_modalumno.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 340, 30));
+
+        jSeparator32.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator32.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modalumno.add(jSeparator32, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 300, 470, 10));
+
+        md_NuevoNumCuentaAlumno.setBackground(new java.awt.Color(193, 216, 252));
+        md_NuevoNumCuentaAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        md_NuevoNumCuentaAlumno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("########"))));
+        jp_modalumno.add(md_NuevoNumCuentaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 390, 470, 30));
+
+        jLabel96.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel96.setText("Nuevo Username del Alumno:");
+        jp_modalumno.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 270, 30));
+
+        jSeparator33.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator33.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modalumno.add(jSeparator33, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 470, 10));
+
+        jLabel97.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel97.setText("Nueva Contraseña del Alumno:");
+        jp_modalumno.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, 270, 30));
+
+        md_NuevoNombreAlumno.setBackground(new java.awt.Color(193, 216, 252));
+        md_NuevoNombreAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modalumno.add(md_NuevoNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 470, 30));
+
+        md_NuevoUserAlumno.setBackground(new java.awt.Color(193, 216, 252));
+        md_NuevoUserAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modalumno.add(md_NuevoUserAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, 470, 30));
+
+        jlista_modalumnos.setModel(new DefaultListModel());
+        jScrollPane8.setViewportView(jlista_modalumnos);
+
+        jp_modalumno.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 240, 580));
+
+        jf_inicioregistro.getContentPane().add(jp_modalumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 1380, 750));
+
+        jp_modificarmaestros.setBackground(new java.awt.Color(193, 216, 252));
+        jp_modificarmaestros.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jp_modificarmaestros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jt_modificarnombremaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jt_modificarnombremaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarmaestros.add(jt_modificarnombremaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 160, 470, 30));
+
+        jLabel79.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel79.setText("Nuevo Sueldo del Maestro:");
+        jp_modificarmaestros.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 240, 30));
+
+        jSeparator21.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator21.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 550, 470, 10));
+
+        jLabel80.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel80.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel80.setText("Nuevo Rol del Maestro:");
+        jp_modificarmaestros.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 210, 30));
+
+        jLabel81.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel81.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel81.setText("Modificando al Maestro");
+        jp_modificarmaestros.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 480, 40));
+
+        jt_modificarusermaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jt_modificarusermaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarmaestros.add(jt_modificarusermaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 460, 30));
+
+        jSeparator22.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator22.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 490, 470, 10));
+
+        jSeparator23.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator23.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, 470, 10));
+
+        JB_MODIFICARMAESTRO.setBackground(new java.awt.Color(255, 0, 0));
+        JB_MODIFICARMAESTRO.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        JB_MODIFICARMAESTRO.setText("Modificar al Maestro");
+        JB_MODIFICARMAESTRO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_MODIFICARMAESTROMouseClicked(evt);
+            }
+        });
+        jp_modificarmaestros.add(JB_MODIFICARMAESTRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 620, 500, 80));
+
+        jSeparator24.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator24.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 470, 10));
+
+        jSeparator25.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator25.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, 470, 10));
+
+        jLabel82.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel82.setText("Nueva Profesion del Maestro:");
+        jp_modificarmaestros.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 260, 30));
+
+        jLabel83.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel83.setText("Nueva Contraseña del Maestro:");
+        jp_modificarmaestros.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 270, 30));
+
+        jSeparator26.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator26.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 250, 470, 10));
+
+        jLabel84.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel84.setText("Nuevo ID del Maestro:");
+        jp_modificarmaestros.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 200, 30));
+
+        jf_modificaridmaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jf_modificaridmaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jf_modificaridmaestro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("########"))));
+        jp_modificarmaestros.add(jf_modificaridmaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 460, 30));
+
+        jt_ModificarProfesionMaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jt_ModificarProfesionMaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarmaestros.add(jt_ModificarProfesionMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 400, 460, 30));
+
+        jt_ModificarRolMaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jt_ModificarRolMaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarmaestros.add(jt_ModificarRolMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 460, 460, 30));
+
+        jf_ModificarSueldoMaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jf_ModificarSueldoMaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jf_ModificarSueldoMaestro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        jp_modificarmaestros.add(jf_ModificarSueldoMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, 460, 30));
+
+        jLabel85.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel85.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel85.setText("Nuevo Username del Maestro:");
+        jp_modificarmaestros.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 270, 30));
+
+        jLabel86.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel86.setText("Nuevo Nombre del Maestro:");
+        jp_modificarmaestros.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 250, 30));
+
+        jt_modificarcontramaestro.setBackground(new java.awt.Color(193, 216, 252));
+        jt_modificarcontramaestro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jp_modificarmaestros.add(jt_modificarcontramaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 460, 30));
+
+        jSeparator27.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator27.setForeground(new java.awt.Color(0, 0, 0));
+        jp_modificarmaestros.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, 470, 10));
+
+        jLabel87.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel87.setText("ID debe ser de 8 caracteres");
+        jp_modificarmaestros.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, 470, -1));
+
+        jl_maestrosamodificar.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(jl_maestrosamodificar);
+
+        jp_modificarmaestros.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 270, 650));
+
+        jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel69.setText("UNITEC FCB © 2023 | Derechos reservados.");
+        jp_modificarmaestros.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 350, 60));
+
+        jf_inicioregistro.getContentPane().add(jp_modificarmaestros, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
+
         jp_crearclase.setBackground(new java.awt.Color(193, 216, 252));
         jp_crearclase.setPreferredSize(new java.awt.Dimension(1920, 1000));
         jp_crearclase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -321,14 +813,14 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel77.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel77.setText("Periodo(Trimestre):");
-        jp_crearclase.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, 170, 30));
+        jLabel77.setText("Periodo(Trimestre(1-2)):");
+        jp_crearclase.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 210, 30));
 
         jSeparator20.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator20.setForeground(new java.awt.Color(0, 0, 0));
         jp_crearclase.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 510, 100, 10));
 
-        js_Periodoclasenueva.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
+        js_Periodoclasenueva.setModel(new javax.swing.SpinnerNumberModel(1, 1, 2, 1));
         jp_crearclase.add(js_Periodoclasenueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 480, 100, 30));
 
         jLabel78.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -460,10 +952,6 @@ public class Principal extends javax.swing.JFrame {
         jt_carreranuevoalumno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jp_crearAlumno.add(jt_carreranuevoalumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 470, 30));
 
-        jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel69.setText("UNITEC FCB © 2023 | Derechos reservados.");
-        jp_crearAlumno.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 350, 60));
-
         jButton6.setBackground(new java.awt.Color(255, 0, 0));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jButton6.setText("Crear Alumno");
@@ -473,6 +961,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jp_crearAlumno.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 530, 500, 80));
+
+        jLabel89.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel89.setText("UNITEC FCB © 2023 | Derechos reservados.");
+        jp_crearAlumno.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 860, 350, 60));
 
         jf_inicioregistro.getContentPane().add(jp_crearAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
 
@@ -598,24 +1090,23 @@ public class Principal extends javax.swing.JFrame {
 
         jf_inicioregistro.getContentPane().add(jp_crearmaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, 1070));
 
-        jPanel1.setBackground(new java.awt.Color(193, 216, 252));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jp_todoregistro.setBackground(new java.awt.Color(193, 216, 252));
+        jp_todoregistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bayern superchiquito.png"))); // NOI18N
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, 50, 60));
+        jp_todoregistro.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, 50, 60));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bayern superchiquito.png"))); // NOI18N
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 50, 60));
+        jp_todoregistro.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 50, 60));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("BIEVENIDO A REGISTRO");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 6, 870, 70));
+        jp_todoregistro.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 6, 870, 70));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo rojo mejor.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2000, 85));
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2003, 12, -1, -1));
+        jp_todoregistro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2000, 85));
 
         ch_clases_registro.setBackground(new java.awt.Color(193, 216, 252));
         ch_clases_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -627,67 +1118,67 @@ public class Principal extends javax.swing.JFrame {
                 ch_clases_registroItemStateChanged(evt);
             }
         });
-        jPanel1.add(ch_clases_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 150, -1));
+        jp_todoregistro.add(ch_clases_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 140, 330));
+        jp_todoregistro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 140, 330));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 204, 204));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Administrar Maestros");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 190, 20));
+        jp_todoregistro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 190, 20));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 204, 204));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Administrar Clases");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 190, 20));
+        jp_todoregistro.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 190, 20));
 
         jl_claveregistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jl_claveregistro.setForeground(new java.awt.Color(255, 255, 255));
         jl_claveregistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_claveregistro.setText("***********");
-        jPanel1.add(jl_claveregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 910, 190, 20));
+        jp_todoregistro.add(jl_claveregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 910, 190, 20));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Opciones de");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 20));
+        jp_todoregistro.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 110, 20));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Contraseña");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 880, 110, 20));
+        jp_todoregistro.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 880, 110, 20));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Usuario");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 730, 110, 20));
+        jp_todoregistro.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 730, 110, 20));
 
         jl_usuarioregistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jl_usuarioregistro.setForeground(new java.awt.Color(255, 255, 255));
         jl_usuarioregistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_usuarioregistro.setText("registro");
-        jPanel1.add(jl_usuarioregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 760, 180, 20));
+        jp_todoregistro.add(jl_usuarioregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 760, 180, 20));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Correo");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 800, 100, 20));
+        jp_todoregistro.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 800, 100, 20));
 
         jl_correoregistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jl_correoregistro.setForeground(new java.awt.Color(255, 255, 255));
         jl_correoregistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_correoregistro.setText("registro@unitec.edu.fcb");
-        jPanel1.add(jl_correoregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 830, 190, 20));
+        jp_todoregistro.add(jl_correoregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 830, 190, 20));
 
         jb_cerrarsesionregistro.setBackground(new java.awt.Color(193, 216, 252));
         jb_cerrarsesionregistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -702,19 +1193,19 @@ public class Principal extends javax.swing.JFrame {
                 jb_cerrarsesionregistroActionPerformed(evt);
             }
         });
-        jPanel1.add(jb_cerrarsesionregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 950, 130, 50));
+        jp_todoregistro.add(jb_cerrarsesionregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 950, 130, 50));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("registro");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 110, 30));
+        jp_todoregistro.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 110, 30));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Informacion");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 690, 110, 20));
+        jp_todoregistro.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 690, 110, 20));
 
         ch_maestros_registro.setBackground(new java.awt.Color(193, 216, 252));
         ch_maestros_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -725,7 +1216,7 @@ public class Principal extends javax.swing.JFrame {
                 ch_maestros_registroItemStateChanged(evt);
             }
         });
-        jPanel1.add(ch_maestros_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, -1));
+        jp_todoregistro.add(ch_maestros_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, -1));
 
         ch_alumnos_registro.setBackground(new java.awt.Color(193, 216, 252));
         ch_alumnos_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -737,53 +1228,22 @@ public class Principal extends javax.swing.JFrame {
                 ch_alumnos_registroItemStateChanged(evt);
             }
         });
-        jPanel1.add(ch_alumnos_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 150, -1));
+        jp_todoregistro.add(ch_alumnos_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 150, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 204, 204));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Administrar Alumnos");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, 20));
+        jp_todoregistro.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, 20));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo rojo mejor.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 1050));
-
-        esconder1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        esconder1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        esconder1.setText("Usted administra toda esta plataforma");
-        jPanel1.add(esconder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 460, 60));
-
-        jScrollPane1.setBackground(new java.awt.Color(179, 205, 252));
-
-        esconder3.setEditable(false);
-        esconder3.setBackground(new java.awt.Color(142, 182, 252));
-        esconder3.setColumns(20);
-        esconder3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        esconder3.setRows(5);
-        esconder3.setText("\t\t                  ¡¡MUCHAS GRACIAS POR ACEPTAR ESTE TRABAJO!!\n\n Confiamos en ti y dejamos la plataforma a tus manos para que no haya ni tan solo un error y que pueda funcionar perfectamente para\n    que nuestros alumnos puedan tener la mejor experiencia posible a la hora de utilizar nuestro programa con sus caracteristicas que \n se han estado programando por mas de 4 semanas y que de requisitos estaba el esforzarse demasiado y meterle mucho amor y animo.");
-        esconder3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jScrollPane1.setViewportView(esconder3);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 920, 120));
-
-        jScrollPane2.setBackground(new java.awt.Color(179, 205, 252));
-
-        esconder2.setEditable(false);
-        esconder2.setBackground(new java.awt.Color(142, 182, 252));
-        esconder2.setColumns(20);
-        esconder2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        esconder2.setRows(5);
-        esconder2.setText("\t\n\tUsted es registro y no hay nadie que pueda hacer todo lo que usted hace, Aqui se podra crear lo que\t\t\n usted quiere ya que en este sistema encontramos maestros, alumos y tambien clases que cursaran los mismos alumnos por los maestros.\n\n   Aqui se podra ingresar, modificar y expulsar lo que viene ser los alumnos y los maestros. Tambien estara encargado de administrar las \nclases dadas por los maestros y las clases cursadas por los alumnos ya que debera matricularlos en el apartado de \"Administrar alumnos\".\n\n Usted al ser el usuario de registro tiene el privilegio de poder cerrar sesion y tambien cerrar el sistema completamente por si hay un fallo\n\t                  que arreglar o administrar con nuestros Ingenieros en Sistemas Computacionales.");
-        esconder2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jScrollPane2.setViewportView(esconder2);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 960, 210));
+        jp_todoregistro.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 1050));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel22.setText("UNITEC FCB © 2023 | Derechos reservados.");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 950, 350, 60));
+        jp_todoregistro.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 950, 350, 60));
 
-        jf_inicioregistro.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1960, 1050));
+        jf_inicioregistro.getContentPane().add(jp_todoregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1960, 1050));
 
         jf_iniciomaestro.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jf_iniciomaestro.setTitle("FCB UNITEC");
@@ -1320,9 +1780,12 @@ public class Principal extends javax.swing.JFrame {
         jf_inicioregistro.setLocationRelativeTo(this);
         jf_inicioregistro.setExtendedState(MAXIMIZED_BOTH);
         jf_inicioregistro.setVisible(true);
+        jp_modalumno.setVisible(false);
         jp_crearmaestro.setVisible(false);
         jp_crearAlumno.setVisible(false);
         jp_crearclase.setVisible(false);
+        jp_modificarmaestros.setVisible(false);
+        jp_modificarclase.setVisible(false);
         tf_user.setText("");
         pf_clave.setText("");
         this.setVisible(false);
@@ -1337,14 +1800,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_cerrarsesionregistroActionPerformed
 
     private void ch_maestros_registroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ch_maestros_registroItemStateChanged
+
         if (ch_maestros_registro.getSelectedItem().equalsIgnoreCase("Ingresar Maestro")) {
+            jp_inicioregistro.setVisible(false);
+            jp_modificarmaestros.setVisible(false);
+            jp_modalumno.setVisible(false);
             jButton1.setVisible(true);
             jp_crearmaestro.setVisible(true);
             jp_crearAlumno.setVisible(false);
             jp_crearclase.setVisible(false);
-            esconder1.setVisible(false);
-            esconder2.setVisible(false);
-            esconder3.setVisible(false);
+            jp_modificarclase.setVisible(false);
             jf_idmaestronuevo.setText("");
             jf_Sueldomaestronuevo.setText("");
             jt_profesionmaestronuevo.setText("");
@@ -1354,27 +1819,36 @@ public class Principal extends javax.swing.JFrame {
             jt_contramaestronuevo.setText("");
 
         } else if (ch_maestros_registro.getSelectedItem().equalsIgnoreCase("Modificar Maestro")) {
-
+            jp_inicioregistro.setVisible(false);
+            jp_modalumno.setVisible(false);
+            jp_crearmaestro.setVisible(false);
+            jp_crearAlumno.setVisible(false);
+            jp_modificarclase.setVisible(false);
+            jp_crearclase.setVisible(false);
+            llenarlistamodmaestros();
+            jp_modificarmaestros.setVisible(true);
         } else if (ch_maestros_registro.getSelectedItem().equalsIgnoreCase("Eliminar Maestro")) {
 
         } else if (ch_maestros_registro.getSelectedItem().equalsIgnoreCase("Inicio")) {
+            jp_inicioregistro.setVisible(true);
+            jp_modificarmaestros.setVisible(false);
+            jp_modalumno.setVisible(false);
+            jp_modificarclase.setVisible(false);
             jp_crearmaestro.setVisible(false);
             jp_crearAlumno.setVisible(false);
             jp_crearclase.setVisible(false);
-            esconder1.setVisible(true);
-            esconder2.setVisible(true);
-            esconder3.setVisible(true);
         }
     }//GEN-LAST:event_ch_maestros_registroItemStateChanged
 
     private void ch_clases_registroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ch_clases_registroItemStateChanged
         if (ch_clases_registro.getSelectedItem().equalsIgnoreCase("Ingresar Clase")) {
+            jp_modificarmaestros.setVisible(false);
+            jp_inicioregistro.setVisible(false);
+            jp_modificarclase.setVisible(false);
             jp_crearmaestro.setVisible(false);
+            jp_modalumno.setVisible(false);
             jp_crearAlumno.setVisible(false);
             jp_crearclase.setVisible(true);
-            esconder1.setVisible(false);
-            esconder2.setVisible(false);
-            esconder3.setVisible(false);
             jt_nombreclasenueva.setText("");
             jf_idclasenueva.setText("");
             anioclasenueva.setDate(null);
@@ -1385,27 +1859,38 @@ public class Principal extends javax.swing.JFrame {
             js_Periodoclasenueva.setValue(1);
             js_uvclasenueva.setValue(1);
         } else if (ch_clases_registro.getSelectedItem().equalsIgnoreCase("Modificar Clase")) {
+            jp_modificarclase.setVisible(true);
+            llenarlistadeclases();
+            jp_inicioregistro.setVisible(false);
+            jp_modalumno.setVisible(false);
+            jp_crearmaestro.setVisible(false);
+            jp_modificarclase.setVisible(true);
+            jp_crearAlumno.setVisible(false);
+            jp_crearclase.setVisible(false);
+            jp_modalumno.setVisible(false);
 
         } else if (ch_clases_registro.getSelectedItem().equalsIgnoreCase("Eliminar Clase")) {
 
         } else if (ch_clases_registro.getSelectedItem().equalsIgnoreCase("Inicio")) {
+            jp_inicioregistro.setVisible(true);
+            jp_modificarmaestros.setVisible(false);
+            jp_modalumno.setVisible(false);
+            jp_modificarclase.setVisible(false);
             jp_crearmaestro.setVisible(false);
             jp_crearAlumno.setVisible(false);
             jp_crearclase.setVisible(false);
-            esconder1.setVisible(true);
-            esconder2.setVisible(true);
-            esconder3.setVisible(true);
         }
     }//GEN-LAST:event_ch_clases_registroItemStateChanged
 
     private void ch_alumnos_registroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ch_alumnos_registroItemStateChanged
         if (ch_alumnos_registro.getSelectedItem().equalsIgnoreCase("Ingresar Alumno")) {
+            jp_modificarmaestros.setVisible(false);
             jp_crearAlumno.setVisible(true);
+            jp_modalumno.setVisible(false);
+            jp_modificarclase.setVisible(false);
             jp_crearclase.setVisible(false);
             jp_crearmaestro.setVisible(false);
-            esconder1.setVisible(false);
-            esconder2.setVisible(false);
-            esconder3.setVisible(false);
+            jp_inicioregistro.setVisible(false);
             jButton1.setVisible(false);
             jf_numcuentanuevoalumno.setText("");
             jt_useralumnonuevo.setText("");
@@ -1414,16 +1899,25 @@ public class Principal extends javax.swing.JFrame {
             jt_contraalumnonuevo.setText("");
             jt_carreranuevoalumno.setText("");
         } else if (ch_alumnos_registro.getSelectedItem().equalsIgnoreCase("Modificar Alumno")) {
+            llenarlistamodalumnos();
+            jp_inicioregistro.setVisible(false);
+            jp_modalumno.setVisible(false);
+            jp_crearmaestro.setVisible(false);
+            jp_modificarclase.setVisible(false);
+            jp_crearAlumno.setVisible(false);
+            jp_crearclase.setVisible(false);
+            jp_modalumno.setVisible(true);
 
         } else if (ch_alumnos_registro.getSelectedItem().equalsIgnoreCase("Eliminar Alumno")) {
 
         } else if (ch_alumnos_registro.getSelectedItem().equalsIgnoreCase("Inicio")) {
+            jp_modificarmaestros.setVisible(false);
+            jp_modalumno.setVisible(false);
+            jp_inicioregistro.setVisible(true);
             jp_crearAlumno.setVisible(false);
             jp_crearmaestro.setVisible(false);
             jp_crearclase.setVisible(false);
-            esconder1.setVisible(true);
-            esconder2.setVisible(true);
-            esconder3.setVisible(true);
+            jp_modificarclase.setVisible(false);
         }
     }//GEN-LAST:event_ch_alumnos_registroItemStateChanged
 
@@ -1469,8 +1963,11 @@ public class Principal extends javax.swing.JFrame {
             jf_inicioregistro.setLocationRelativeTo(this);
             jf_inicioregistro.setExtendedState(MAXIMIZED_BOTH);
             jf_inicioregistro.setVisible(true);
+            jp_modalumno.setVisible(false);
+            jp_modificarmaestros.setVisible(false);
             jp_crearmaestro.setVisible(false);
             jp_crearAlumno.setVisible(false);
+            jp_modificarclase.setVisible(false);
             jp_crearclase.setVisible(false);
             tf_user.setText("");
             pf_clave.setText("");
@@ -1563,22 +2060,20 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_cerrarsesionregistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_cerrarsesionregistroMouseClicked
         jf_inicioregistro.setVisible(false);
+        jp_inicioregistro.setVisible(true);
         this.setVisible(true);
-        esconder1.setVisible(true);
-        esconder2.setVisible(true);
-        esconder3.setVisible(true);
     }//GEN-LAST:event_jb_cerrarsesionregistroMouseClicked
 
     private void jb_crearclasenuevaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearclasenuevaMouseClicked
-        if (jt_nombreclasenueva.getText().isBlank()||jf_idclasenueva.getText().isBlank()||anioclasenueva.getDate().equals(null)) {
+        if (jt_nombreclasenueva.getText().isBlank() || jf_idclasenueva.getText().isBlank() || anioclasenueva.getDate().equals(null)) {
             JOptionPane.showMessageDialog(jf_inicioregistro, "Hay minimo un espacio en blanco", "Error", 2);
-        }else{
+        } else {
             int idclasenew = Integer.parseInt(jf_idclasenueva.getText());
-            int hora2 = (Integer)js_horaclasenueva.getValue();
-            int minutos2 = (Integer)js_minutoclasenueva.getValue();
-            String hour =  ((hora2<=9?"0":"")+hora2+":"+(minutos2<=9?"0":"")+minutos2+" "+(String)jc_tipohoraclasenueva.getSelectedItem());
-            claseshechas.add(new Clase(idclasenew, (Integer)js_uvclasenueva.getValue(), (Integer)js_semestreclasenueva.getValue(), (Integer)js_Periodoclasenueva.getValue(), anioclasenueva.getDate(), jt_nombreclasenueva.getText(), hour));
-            JOptionPane.showMessageDialog(jf_inicioregistro, "Se ha añadido la clase "+jt_nombreclasenueva.getText());
+            int hora2 = (Integer) js_horaclasenueva.getValue();
+            int minutos2 = (Integer) js_minutoclasenueva.getValue();
+            String hour = ((hora2 <= 9 ? "0" : "") + hora2 + ":" + (minutos2 <= 9 ? "0" : "") + minutos2 + " " + (String) jc_tipohoraclasenueva.getSelectedItem());
+            claseshechas.add(new Clase(idclasenew, (Integer) js_uvclasenueva.getValue(), (Integer) js_semestreclasenueva.getValue(), (Integer) js_Periodoclasenueva.getValue(), anioclasenueva.getDate(), jt_nombreclasenueva.getText(), hour));
+            JOptionPane.showMessageDialog(jf_inicioregistro, "Se ha añadido la clase " + jt_nombreclasenueva.getText());
             jt_nombreclasenueva.setText("");
             jf_idclasenueva.setText("");
             anioclasenueva.setDate(null);
@@ -1590,6 +2085,181 @@ public class Principal extends javax.swing.JFrame {
             js_uvclasenueva.setValue(1);
         }
     }//GEN-LAST:event_jb_crearclasenuevaMouseClicked
+
+    private void JB_MODIFICARMAESTROMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_MODIFICARMAESTROMouseClicked
+        if (jl_maestrosamodificar.isSelectionEmpty()) {
+            JOptionPane.showMessageDialog(jf_inicioregistro, "Debe elegir a que maestro modificar", "Error", 2);
+        } else {
+            boolean semodifico = false;
+            int cualeligio = jl_maestrosamodificar.getSelectedIndex();
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i) instanceof Maestro) {
+                    if (((Maestro) usuarios.get(i)).getId() == maestrosmodificadores.get(cualeligio).getId()) {
+                        if (!jt_modificarnombremaestro.getText().isBlank()) {
+                            ((Maestro) usuarios.get(i)).setNombre(jt_modificarnombremaestro.getText());
+                            semodifico = true;
+                        }
+                        if (!jt_modificarusermaestro.getText().isBlank()) {
+                            ((Maestro) usuarios.get(i)).setNombreusuario(jt_modificarusermaestro.getText());
+                            semodifico = true;
+                        }
+                        if (!jt_modificarcontramaestro.getText().isBlank()) {
+                            ((Maestro) usuarios.get(i)).setContra(jt_modificarcontramaestro.getText());
+                            semodifico = true;
+                        }
+                        if (!jf_modificaridmaestro.getText().isBlank()) {
+                            if (jf_modificaridmaestro.getText().length() != 8) {
+                                JOptionPane.showMessageDialog(jf_inicioregistro, "El ID debe ser de 8 caracteres, se quedara con el mismo", "Error", 2);
+                            } else {
+                                ((Maestro) usuarios.get(i)).setId(Integer.parseInt(jf_modificaridmaestro.getText()));
+                                semodifico = true;
+                            }
+                        }
+                        if (!jt_ModificarProfesionMaestro.getText().isBlank()) {
+                            ((Maestro) usuarios.get(i)).setProfesion(jt_ModificarProfesionMaestro.getText());
+                            semodifico = true;
+                        }
+                        if (!jt_ModificarRolMaestro.getText().isBlank()) {
+                            ((Maestro) usuarios.get(i)).setRol(jt_ModificarRolMaestro.getText());
+                            semodifico = true;
+                        }
+                        if (!jf_ModificarSueldoMaestro.getText().isBlank()) {
+                            ((Maestro) usuarios.get(i)).setSueldo(Double.parseDouble(jf_ModificarSueldoMaestro.getText()));
+                            semodifico = true;
+                        }
+                    }
+                }
+            }
+            if (semodifico) {
+                jt_modificarnombremaestro.setText("");
+                jt_modificarusermaestro.setText("");
+                jt_modificarcontramaestro.setText("");
+                jf_modificaridmaestro.setText("");
+                jt_ModificarProfesionMaestro.setText("");
+                jt_ModificarRolMaestro.setText("");
+                jf_ModificarSueldoMaestro.setText("");
+                llenarlistamodmaestros();
+                JOptionPane.showMessageDialog(jf_inicioregistro, "Se modifico correctamente");
+            }
+        }
+    }//GEN-LAST:event_JB_MODIFICARMAESTROMouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        if (jlista_modalumnos.isSelectionEmpty()) {
+            JOptionPane.showMessageDialog(jf_inicioregistro, "Debe elegir a que alumno modificar", "Error", 2);
+        } else {
+            boolean semodifico2 = false;
+            int cualeligio2 = jlista_modalumnos.getSelectedIndex();
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i) instanceof Alumno) {
+                    if (((Alumno) usuarios.get(i)).getNumcuenta() == alumnosmodificadores.get(cualeligio2).getNumcuenta()) {
+                        if (!md_NuevoNombreAlumno.getText().isBlank()) {
+                            ((Alumno) usuarios.get(i)).setNombre(md_NuevoNombreAlumno.getText());
+                            semodifico2 = true;
+                        }
+                        if (!md_NuevoUserAlumno.getText().isBlank()) {
+                            ((Alumno) usuarios.get(i)).setNombreusuario(md_NuevoUserAlumno.getText());
+                            semodifico2 = true;
+                        }
+                        if (!md_NuevaContraAlumno.getText().isBlank()) {
+                            ((Alumno) usuarios.get(i)).setContra(md_NuevaContraAlumno.getText());
+                            semodifico2 = true;
+                        }
+                        if (!md_NuevoNumCuentaAlumno.getText().isBlank()) {
+                            if (md_NuevoNumCuentaAlumno.getText().length() != 8) {
+                                JOptionPane.showMessageDialog(jf_inicioregistro, "El numero de cuenta debe ser de 8 caracteres, se quedara con el mismo", "Error", 2);
+                            } else {
+                                ((Alumno) usuarios.get(i)).setNumcuenta(Integer.parseInt(md_NuevoNumCuentaAlumno.getText()));
+                                semodifico2 = true;
+                            }
+                        }
+                        if (!md_NuevaCarreraAlumno.getText().isBlank()) {
+                            ((Alumno) usuarios.get(i)).setCarrera(md_NuevaCarreraAlumno.getText());
+                            semodifico2 = true;
+                        }
+                        if (!md_NuevoRolAlumno.getText().isBlank()) {
+                            ((Alumno) usuarios.get(i)).setRol(md_NuevoRolAlumno.getText());
+                            semodifico2 = true;
+                        }
+
+                    }
+                }
+            }
+            if (semodifico2) {
+                md_NuevaCarreraAlumno.setText("");
+                md_NuevaContraAlumno.setText("");
+                md_NuevoNombreAlumno.setText("");
+                md_NuevoNumCuentaAlumno.setText("");
+                md_NuevoRolAlumno.setText("");
+                md_NuevoUserAlumno.setText("");
+                llenarlistamodalumnos();
+                JOptionPane.showMessageDialog(jf_inicioregistro, "Se modifico correctamente");
+            }
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jb_modificarclaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarclaseMouseClicked
+        if (jlista_clasesmod.isSelectionEmpty()) {
+            JOptionPane.showMessageDialog(jf_inicioregistro, "Debe elegir que clase quiere modificar", "Error", 2);
+        } else {
+            boolean semodifico3 = false;
+            int cualeligio3 = jlista_clasesmod.getSelectedIndex();
+            for (int i = 0; i < claseshechas.size(); i++) {
+                if(claseshechas.get(i).getId()== clasesmodificadoras.get(cualeligio3).getId()){
+                    if (!md1_NombreNuevoClase.getText().isBlank()) {
+                        claseshechas.get(i).setNombreclase(md1_NombreNuevoClase.getText());
+                        semodifico3 = true;
+                    }
+                    if (!md1_IDNuevoClase.getText().isBlank()) {
+                        claseshechas.get(i).setId(Integer.parseInt(md1_IDNuevoClase.getText()));
+                        semodifico3 = true;
+                    }
+                    if (md1_AnioNuevoClase.getDate() != null) {
+                        claseshechas.get(i).setAnio(md1_AnioNuevoClase.getDate());
+                    }
+                    int hora3 = (Integer) md1_HoraNuevoClase.getValue();
+                    int minutos3 = (Integer) md1_MinutosNuevoClase.getValue();
+                    String hhh = ((hora3 <= 9 ? "0" : "") + hora3 + ":" + (minutos3 <= 9 ? "0" : "") + minutos3 + " " + (String) md1_TipoHoraNuevoClase.getSelectedItem());
+                    claseshechas.get(i).setHora(hhh);
+                    claseshechas.get(i).setSemestre((Integer) md1_SemestreNuevoClase.getValue());
+                    claseshechas.get(i).setPeriodo((Integer)md1_PeriodoNuevoClase.getValue());
+                    claseshechas.get(i).setUv((Integer)md1_UVNuevoClase.getValue());
+                }
+            }
+            if (semodifico3) {
+                md1_NombreNuevoClase.setText("");
+                md1_IDNuevoClase.setText("");
+                md1_AnioNuevoClase.setDate(null);
+                md1_HoraNuevoClase.setValue(1);
+                md1_MinutosNuevoClase.setValue(0);
+                md1_TipoHoraNuevoClase.setSelectedIndex(0);
+                md1_SemestreNuevoClase.setValue(1);
+                md1_PeriodoNuevoClase.setValue(1);
+                md1_UVNuevoClase.setValue(1);
+                llenarlistadeclases();
+                JOptionPane.showMessageDialog(jf_inicioregistro, "Se modifico correctamente");
+            }
+        }
+    }//GEN-LAST:event_jb_modificarclaseMouseClicked
+
+    private void jlista_clasesmodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlista_clasesmodMouseClicked
+        if (!jlista_clasesmod.isSelectionEmpty()){
+            int cual = jlista_clasesmod.getSelectedIndex();
+            md1_SemestreNuevoClase.setValue(clasesmodificadoras.get(cual).getSemestre());
+            md1_PeriodoNuevoClase.setValue(clasesmodificadoras.get(cual).getPeriodo());
+            md1_UVNuevoClase.setValue(clasesmodificadoras.get(cual).getUv());
+            int  hora67 = Integer.parseInt(claseshechas.get(cual).getHora().charAt(0)+""+claseshechas.get(cual).getHora().charAt(1));
+            int  minuto67 = Integer.parseInt(claseshechas.get(cual).getHora().charAt(3)+""+claseshechas.get(cual).getHora().charAt(4));
+            String tipohora67 = claseshechas.get(cual).getHora().charAt(6)+""+claseshechas.get(cual).getHora().charAt(7);
+            md1_HoraNuevoClase.setValue(hora67);
+            md1_MinutosNuevoClase.setValue(minuto67);
+            if (tipohora67.equalsIgnoreCase("AM")) {
+                md1_TipoHoraNuevoClase.setSelectedIndex(0);
+            }else{
+                md1_TipoHoraNuevoClase.setSelectedIndex(1);
+            }
+        }
+    }//GEN-LAST:event_jlista_clasesmodMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1647,7 +2317,45 @@ public class Principal extends javax.swing.JFrame {
         ch_clases_registro.select(0);
     }
 
+    private void llenarlistamodmaestros() {
+        DefaultListModel modelo = (DefaultListModel) jl_maestrosamodificar.getModel();
+        modelo.removeAllElements();
+        maestrosmodificadores = new ArrayList();
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i) instanceof Maestro) {
+                modelo.addElement(usuarios.get(i));
+                maestrosmodificadores.add((Maestro) usuarios.get(i));
+            }
+        }
+        jl_maestrosamodificar.setModel(modelo);
+    }
+
+    private void llenarlistamodalumnos() {
+        DefaultListModel modelo2 = (DefaultListModel) jlista_modalumnos.getModel();
+        modelo2.removeAllElements();
+        alumnosmodificadores = new ArrayList();
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i) instanceof Alumno) {
+                modelo2.addElement(usuarios.get(i));
+                alumnosmodificadores.add((Alumno) usuarios.get(i));
+            }
+        }
+        jlista_modalumnos.setModel(modelo2);
+    }
+
+    private void llenarlistadeclases() {
+        DefaultListModel modelo3 = (DefaultListModel) jlista_clasesmod.getModel();
+        modelo3.removeAllElements();
+        clasesmodificadoras = new ArrayList();
+        for (int i = 0; i < claseshechas.size(); i++) {
+            modelo3.addElement(claseshechas.get(i));
+            clasesmodificadoras.add(claseshechas.get(i));
+        }
+        jlista_clasesmod.setModel(modelo3);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_MODIFICARMAESTRO;
     private javax.swing.JTextField JT_Rolmaestronuevo;
     private com.toedter.calendar.JDateChooser anioclasenueva;
     private java.awt.Choice ch_alumnos_registro;
@@ -1661,12 +2369,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jL_fondomenudesp;
     private javax.swing.JLabel jL_fondomenudesp1;
     private javax.swing.JLabel jL_fondomenudesp2;
     private javax.swing.JLabel jL_fondomenudesp3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1741,10 +2457,29 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1755,6 +2490,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1768,8 +2506,28 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
+    private javax.swing.JSeparator jSeparator23;
+    private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator25;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator27;
+    private javax.swing.JSeparator jSeparator28;
+    private javax.swing.JSeparator jSeparator29;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator30;
+    private javax.swing.JSeparator jSeparator31;
+    private javax.swing.JSeparator jSeparator32;
+    private javax.swing.JSeparator jSeparator33;
+    private javax.swing.JSeparator jSeparator34;
+    private javax.swing.JSeparator jSeparator35;
+    private javax.swing.JSeparator jSeparator36;
+    private javax.swing.JSeparator jSeparator37;
+    private javax.swing.JSeparator jSeparator38;
+    private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator40;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
@@ -1782,13 +2540,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_cerrarsesionregistro;
     private javax.swing.JButton jb_crearclasenueva;
     private javax.swing.JButton jb_iniciarsesion;
+    private javax.swing.JButton jb_modificarclase;
     private javax.swing.JComboBox<String> jc_tipohoraclasenueva;
+    private javax.swing.JFormattedTextField jf_ModificarSueldoMaestro;
     private javax.swing.JFormattedTextField jf_Sueldomaestronuevo;
     private javax.swing.JFormattedTextField jf_idclasenueva;
     private javax.swing.JFormattedTextField jf_idmaestronuevo;
     private javax.swing.JFrame jf_inicioalumno;
     private javax.swing.JFrame jf_iniciomaestro;
     private javax.swing.JFrame jf_inicioregistro;
+    private javax.swing.JFormattedTextField jf_modificaridmaestro;
     private javax.swing.JFormattedTextField jf_numcuentanuevoalumno;
     private javax.swing.JLabel jl_barramaestros;
     private javax.swing.JLabel jl_barramaestros1;
@@ -1807,6 +2568,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jl_fondo;
     private javax.swing.JLabel jl_homemaestros;
     private javax.swing.JLabel jl_homemaestros1;
+    private javax.swing.JList<String> jl_maestrosamodificar;
     private javax.swing.JLabel jl_modificarexamen;
     private javax.swing.JLabel jl_resexamen;
     private javax.swing.JLabel jl_usuario;
@@ -1814,19 +2576,31 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jl_usuarioregistro;
     private javax.swing.JLabel jl_vernota;
     private javax.swing.JLabel jl_vernotaalum;
+    private javax.swing.JList<String> jlista_clasesmod;
+    private javax.swing.JList<String> jlista_modalumnos;
     private javax.swing.JPanel jp_crearAlumno;
     private javax.swing.JPanel jp_crearclase;
     private javax.swing.JPanel jp_crearmaestro;
+    private javax.swing.JPanel jp_inicioregistro;
     private javax.swing.JPanel jp_menudesp;
     private javax.swing.JPanel jp_menudespalumno;
+    private javax.swing.JPanel jp_modalumno;
+    private javax.swing.JPanel jp_modificarclase;
+    private javax.swing.JPanel jp_modificarmaestros;
+    private javax.swing.JPanel jp_todoregistro;
     private javax.swing.JSpinner js_Periodoclasenueva;
     private javax.swing.JSpinner js_horaclasenueva;
     private javax.swing.JSpinner js_minutoclasenueva;
     private javax.swing.JSpinner js_semestreclasenueva;
     private javax.swing.JSpinner js_uvclasenueva;
+    private javax.swing.JTextField jt_ModificarProfesionMaestro;
+    private javax.swing.JTextField jt_ModificarRolMaestro;
     private javax.swing.JTextField jt_carreranuevoalumno;
     private javax.swing.JTextField jt_contraalumnonuevo;
     private javax.swing.JTextField jt_contramaestronuevo;
+    private javax.swing.JTextField jt_modificarcontramaestro;
+    private javax.swing.JTextField jt_modificarnombremaestro;
+    private javax.swing.JTextField jt_modificarusermaestro;
     private javax.swing.JTextField jt_nombrealumnonuevo;
     private javax.swing.JTextField jt_nombreclasenueva;
     private javax.swing.JTextField jt_nombremaestronuevo;
@@ -1834,6 +2608,21 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_rolalumnonuevo;
     private javax.swing.JTextField jt_useralumnonuevo;
     private javax.swing.JTextField jt_usermaestronuevo;
+    private com.toedter.calendar.JDateChooser md1_AnioNuevoClase;
+    private javax.swing.JSpinner md1_HoraNuevoClase;
+    private javax.swing.JFormattedTextField md1_IDNuevoClase;
+    private javax.swing.JSpinner md1_MinutosNuevoClase;
+    private javax.swing.JTextField md1_NombreNuevoClase;
+    private javax.swing.JSpinner md1_PeriodoNuevoClase;
+    private javax.swing.JSpinner md1_SemestreNuevoClase;
+    private javax.swing.JComboBox<String> md1_TipoHoraNuevoClase;
+    private javax.swing.JSpinner md1_UVNuevoClase;
+    private javax.swing.JTextField md_NuevaCarreraAlumno;
+    private javax.swing.JTextField md_NuevaContraAlumno;
+    private javax.swing.JTextField md_NuevoNombreAlumno;
+    private javax.swing.JFormattedTextField md_NuevoNumCuentaAlumno;
+    private javax.swing.JTextField md_NuevoRolAlumno;
+    private javax.swing.JTextField md_NuevoUserAlumno;
     private javax.swing.JPasswordField pf_clave;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
