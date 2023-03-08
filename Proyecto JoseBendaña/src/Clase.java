@@ -4,7 +4,8 @@ import java.util.Date;
 
 class Clase {
 
-    private ArrayList<Maestro> maestrosdanclase = new ArrayList();
+//    private ArrayList<Maestro> maestrosdanclase = new ArrayList();
+    private Maestro mister;
     private ArrayList<Alumno> alumnosreciben = new ArrayList();
     private ArrayList<Tarea> tareas = new ArrayList();
     private ArrayList<Examen> examenes = new ArrayList();
@@ -25,13 +26,22 @@ class Clase {
         this.hora = hora;
     }
 
-    public ArrayList<Maestro> getMaestrosdanclase() {
-        return maestrosdanclase;
+    public Maestro getMister() {
+        return mister;
     }
 
-    public void setMaestrosdanclase(ArrayList<Maestro> maestrosdanclase) {
-        this.maestrosdanclase = maestrosdanclase;
+    public void setMister(Maestro mister) {
+        this.mister = mister;
     }
+
+    
+//    public ArrayList<Maestro> getMaestrosdanclase() {
+//        return maestrosdanclase;
+//    }
+//
+//    public void setMaestrosdanclase(ArrayList<Maestro> maestrosdanclase) {
+//        this.maestrosdanclase = maestrosdanclase;
+//    }
 
     public ArrayList<Alumno> getAlumnosreciben() {
         return alumnosreciben;
